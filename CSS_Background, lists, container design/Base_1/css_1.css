@@ -1,0 +1,31 @@
+.cr {
+	background-position: -143px -200px;
+	background-image: url("images/cards.png");
+	background-repeat: no-repeat;
+	width: 140px;
+	height: 190px;
+	float: left;
+}
+
+.ch{
+	background-position: -435px -600px;
+	background-image: url("images/cards.png");
+	background-repeat: no-repeat;
+	width: 140px;
+	height: 190px;
+	float: left;
+	margin-left: -20px;
+}
+
+.bu {
+	background-position: -289px -1395px;
+	background-image: url("images/cards.png");
+	background-repeat: no-repeat;
+	width: 140px;
+	height: 190px;
+	float: left;
+	margin-left: -20px;
+}
+
+
+

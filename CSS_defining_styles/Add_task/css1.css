@@ -1,0 +1,22 @@
+
+header {
+	text-align: right; 
+	font-size: 20px;
+}
+
+h1 {
+	font-size: 1em;
+}
+
+h3 {
+	text-decoration: underline ; 
+	font: 700 30px 'Caveat', cursive;
+} 
+
+article {
+	font: 400 24px 'Caveat', cursive;
+}
+
+footer {
+	font-size: 20px
+}

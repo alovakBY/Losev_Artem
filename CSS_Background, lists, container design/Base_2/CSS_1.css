@@ -1,0 +1,23 @@
+.conteiner {
+	background-color: black;
+	color: green;
+	width: 400px;
+	max-height: 80px;
+	overflow: auto;
+}
+
+.spisok{
+	width: 350px;
+}
+
+.sp {
+	list-style-type: upper-roman;
+}
+
+.vsp {
+	list-style-type: lower-roman;
+}
+
+.conteiner>p{
+	margin: 0px;
+}

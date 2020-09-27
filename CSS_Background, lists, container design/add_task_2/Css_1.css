@@ -1,0 +1,27 @@
+ *{
+	 margin: 0;
+	 padding: 0;
+ }
+.conteiner {
+	display: flex;
+	flex-direction: row;
+}
+
+.article {
+	flex: 1 1 auto;
+}
+
+.navigation{
+	align-self: flex-start;
+	background-color: lightcoral;
+	flex: 0 0 15em;
+}
+
+.article1{
+	background-color: khaki;
+	margin-bottom: 0.2em;
+	overflow: hidden;
+}
+.footer{
+	background-color: lightblue;
+}

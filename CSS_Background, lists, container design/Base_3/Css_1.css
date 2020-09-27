@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+}
+
+.conteiner {
+	background-color: lightseagreen;
+}
+
+.nav{
+	width: 20%;
+	background-color: khaki;
+	float: left;
+}
+
+.Article1{
+	width: 80%;
+	background-color: lightblue;
+	float: left;
+	margin-bottom: 0.2em;
+}
+
+.footer{
+	clear: both;
+	background-color: lightcoral;
+}
+
+.clear {
+	clear: both
+}
