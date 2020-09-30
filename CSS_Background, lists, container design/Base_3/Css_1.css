@@ -1,5 +1,7 @@
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 .conteiner {
@@ -7,14 +9,15 @@
 }
 
 .nav{
-	width: 15%;
+	width: 20%;
 	background-color: khaki;
 	float: left;
 }
 
 .Article {
-	width: auto;
+	width: 80%;
 	float: left;
+	
 }
 
 .footer{
@@ -22,7 +25,10 @@
 	background-color: lightcoral;
 }
 
-.clear {
-	clear: both
+.Article>div{
+	overflow: hidden;
+	background-color: lightslategray;
+	margin-bottom: 0.2em;
 }
+
 
