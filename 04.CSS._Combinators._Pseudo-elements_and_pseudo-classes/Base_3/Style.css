@@ -1,0 +1,45 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+table {
+	margin: 20px;
+	width: 800px;
+	height: 800px;
+	border: 2px solid black;
+	border-collapse: collapse;
+	counter-reset: col 65;
+}
+
+tr, td {
+	border: 2px solid black;
+	text-align: center;
+	font-size: 70px;
+	font-weight: bold;
+}
+
+td::before {
+	counter-increment: col -1;
+	content: counter(col);
+}
+
+tr:nth-child(even) td:nth-child(odd){
+	background-color: black;
+	color: white;
+}
+
+
+tr:nth-child(odd) td:nth-child(even){
+	background-color: black;
+	color: white;
+}
+
+body {
+	counter-reset: section 65;
+}
+
+
+
+

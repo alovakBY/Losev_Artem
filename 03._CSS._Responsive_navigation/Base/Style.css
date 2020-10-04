@@ -1,0 +1,55 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+ul {
+	list-style-type: none;
+}
+
+div ul li {
+	margin-left: 1px;
+	background-color: lightgray;
+	border: solid 1px;
+	cursor: pointer;
+	width: 100px;
+	border-radius: 3px;
+	top:100%;
+}
+
+div>ul>li {
+	float: left;
+	position: relative;
+	} 
+
+li ul {
+	opacity: 0;
+	margin-left: -2px;
+	position: absolute;
+	top: -20em;
+}
+
+div>ul>li:hover{
+	background-color: khaki;
+	transition: background-color 0.5s;
+}
+
+li:hover ul{
+	opacity: 1;
+	top:100%;
+	transition: opacity 1s ease 0.2s;
+}
+
+@media all and (max-width: 707px) {
+	div>ul>li {
+		float: none;
+		} 
+		
+	li:hover ul{
+		position: absolute;
+		opacity: 1;
+		left: 95%;
+		top: 20%;
+		z-index: 1;
+		}
+}

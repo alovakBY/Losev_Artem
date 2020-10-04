@@ -1,0 +1,33 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+p {
+	margin: 10px;
+	padding: 10px;
+	border: 2px solid #a7b6c5;
+	border-radius: 0 20px 0 20px;
+}
+
+a[href^="https://"]::before {
+	content: url(pic/extref.png);
+}
+
+a[href$="doc"]::after {
+	content: url(pic/logo-doc.jpg);
+}
+
+a[href$="pdf"]::after {
+	content: url(pic/logo-pdf.png);
+}
+
+a[href$="zip"]::after {
+	content: url(pic/logo-zip.gif);
+}
+
+ul {
+	list-style-image: url(pic/logo-list.jpg);
+	margin: 20px 0 0 50px;
+}
+
