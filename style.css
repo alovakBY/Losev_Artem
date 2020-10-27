@@ -257,7 +257,7 @@ cursor: pointer;
 	}
 
 	.header__nav__nav.activ {
-		top: -60px;
+		top: 60px;
 		left: 0;
 		transition: top .6s ease-in-out;
 		background-color: #5d5086;
