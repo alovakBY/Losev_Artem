@@ -1,0 +1,282 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+body {
+	font-family: Sansation-regular;
+	color: white;
+}
+
+.site {
+	max-width: 1000px;
+	margin: 0 auto;
+	background-color: #c7c6c6;
+}
+
+.header_bg {
+	width: 100%;
+	background-image: url(img/Header/bg_header.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+.header {
+	position: fixed;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #5d5086;
+}
+
+.contain {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.header__body {
+	background-color: #5d5086;
+	border-bottom: 1px solid #70678b;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header__logo {
+font-size: 24px;
+line-height: 28px;
+text-transform: uppercase;
+margin-left: 30px;
+cursor: pointer;
+}
+
+.header__logo>span {
+	color: #da2346;
+}
+
+					/* Меню навигации */
+
+
+.header__nav__nav a {
+	font-size: 16px;
+	line-height: 26px;
+}
+
+.header__nav__nav a:not(:last-child) {
+	margin-right: 55px;
+}
+
+.header__nav__nav a:hover {
+	color:#097e89 ;
+}
+
+.header__icon {
+	margin :3px 43px 0 0;
+}
+
+.header__nav__burger {
+	display: none;
+}
+
+.header__nav__burger__line {
+	background-color: white;
+	width: 30px;
+	height: 3px;
+	position: relative;
+	transition: all 0.2s ease;
+}
+
+.header__nav__burger__line::before {
+	content: "";
+	background-color: white;
+	width: 30px;
+	height: 3px;
+	position: absolute;
+	left: 0;
+	top: -8px;
+	transition: all 0.2s ease-in;
+}
+
+.header__nav__burger__line::after {
+	content: "";
+	background-color: white;
+	width: 30px;
+	height: 3px;
+	position: absolute;
+	left: 0;
+	top: 8px;
+	transition: all 0.2s ease-in 0.1s;
+}
+
+.header__icon img {
+	width: 25px;
+	height: 30px;
+	cursor: pointer;
+}
+
+					/* Страница домой	 */
+
+.home_container {
+	max-width: 540px;
+	margin: 40px auto 0;
+	padding-bottom: 180px;
+}
+
+.home {
+	position: relative;
+	max-width: 540px;
+	border: 1px solid rgba(116, 101, 167, 0.2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 55px;
+}
+
+.home__title {
+	font-family: Sansation-bold;
+	font-size: 48px;
+	line-height: 38px;
+	text-transform: uppercase;
+	margin: 50px 0 30px 0;
+	text-align: center;
+}
+
+.home__text {
+	max-width: 390px;
+	opacity: 0.7;
+	font-size: 10px;
+	line-height: 18px;
+	text-align: center;
+	padding: 0 5px;
+}
+
+.home__button {
+	width: 110px;
+	height: 35px;
+	border: 1px solid white;
+	font-size: 14px;
+	line-height: 18px;
+	text-transform: uppercase;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	bottom: -17px;
+	display: inline-block;
+	margin-left: -55px;
+}
+
+.home__button:hover {
+	border: 2px solid #097e89;
+	color:#097e89 ;
+}
+
+.home__button a {
+	display: block;
+	padding: 8px 0;
+}
+
+.home__button a:hover {
+	color:#097e89 ;
+}
+
+
+
+
+					/* Медиа запросы */
+
+@media screen and (max-width: 970px) {
+	.header__nav__nav a:not(:last-child) {
+		margin-right: 20px;
+	}
+}
+
+@media screen and (max-width: 722px) {
+	
+	.header__logo{
+		margin-left: 10px;
+	}
+
+	.header__icon {
+		margin: 3px 10px 0 0;
+	}
+
+	.header__nav__burger {
+		order: 1;
+	}
+
+	.header__nav__nav {
+		padding: 10px 10px 50px 10px;
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		z-index:-1;
+		top: -100%;
+		transition: top .6s ease-in-out;
+		background-color: #5d5086;
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+	}
+
+
+	.header__nav__burger {
+		height: 25px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		margin-right: 10px;
+	}
+
+	.header__nav__burger__line.activ {
+		background-color: transparent;
+		transition: all 0.2s ease;
+	}
+
+	.header__nav__burger__line.activ::before {
+		transform: rotate(45deg);
+		left: 0;
+		top: 0;
+		transition: all 0.2s ease-in;
+	}
+
+	.header__nav__burger__line.activ::after{
+		transform: rotate(-45deg);
+		left: 0;
+		top: 0;
+		transition: all 0.2s ease-in 0.1s;
+	}
+
+	.header__nav__nav.activ {
+		top: -60px;
+		left: 0;
+		transition: top .6s ease-in-out;
+		background-color: #5d5086;
+		padding: 10px 10px 50px 10px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.lock {
+		overflow: hidden;
+	}
+
+	.header__nav__nav a:not(:last-child) {
+		margin-right: 0px;
+	}
+
+	a {
+		padding: 10px;
+	}
+}
+
+
+
+

@@ -1,0 +1,39 @@
+@font-face {
+	font-family: Sansation-regular;
+	src: url(fonts/Sansation_Regular.ttf);
+}
+
+@font-face {
+	font-family: Sansation-bold;
+	src: url(fonts/Sansation_Bold.ttf);
+}
+
+@font-face {
+	font-family: HelveticaLTStd-bold;
+	src: url(fonts/HelveticaLTStdBold.otf);
+}
+
+@font-face {
+	font-family: HelveticaLTStdCond-light;
+	src: url(fonts/HelveticaLTStdLightCond.otf);
+}
+
+@font-face {
+	font-family: Neoteric-bold;
+	src: url(fonts/NEOTERICc_-_Bold_DEMO_VERSION.ttf);
+}
+
+@font-face {
+	font-family: Myriad-regular;
+	src: url(fonts/MyriadPro_regular.otf);
+}
+
+@font-face {
+	font-family: Myriad-semibold;
+	src: url(fonts/MyriadPro_semibold.otf);
+}
+
+
+
+
+
