@@ -1,0 +1,15 @@
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+.date {
+  color: green;
+}
+.champ {
+  color: red;
+}
+.link {
+}
+.bio {
+  color: blue;
+}

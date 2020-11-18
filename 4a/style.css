@@ -1,0 +1,16 @@
+p {
+  margin: 20px;
+}
+div {
+  text-align: center;
+  font-size: 50px;
+  padding: 50px;
+  background: url(img/left_top.png) left top no-repeat,
+    url(img/right_top.png) right top no-repeat,
+    url(img/left_bottom.png) left bottom no-repeat,
+    url(img/right_bottom.png) right bottom no-repeat,
+    url(img/hor.png) top center repeat-x,
+    url(img/hor_bot.png) bottom center repeat-x,
+    url(img/vert_left.png) left center repeat-y,
+    url(img/vert_right.png) right center repeat-y;
+}
