@@ -1,0 +1,56 @@
+.text {
+}
+
+.container {
+  position: relative;
+}
+
+.images {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+img:nth-child(1) {
+  position: absolute;
+  right: 0;
+  top: 35px;
+}
+
+img:nth-child(2) {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+img:nth-child(3) {
+  position: absolute;
+  top: 210px;
+  transform: translateX(-50%);
+}
+
+img:nth-child(4) {
+  position: absolute;
+  top: 75px;
+  transform: translateX(-50%);
+}
+
+img:nth-child(1):hover {
+  z-index: 10;
+  cursor: pointer;
+}
+
+img:nth-child(2):hover {
+  z-index: 10;
+  cursor: pointer;
+}
+
+img:nth-child(3):hover {
+  z-index: 10;
+  cursor: pointer;
+}
+
+img:nth-child(4):hover {
+  cursor: pointer;
+}
