@@ -8,72 +8,50 @@ body {
   padding: 5px;
 }
 
-form {
-  width: 100%;
-  padding: 5px;
-}
-
-div {
-  position: relative;
-  margin-bottom: 5px;
-  padding-bottom: 0.1px;
-}
-
 span {
-  display: inline-block;
-  width: 200px;
+	float: left;
 }
 
-.inputtext {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 204px;
-
-  margin-bottom: 0;
+div>div {
+	padding-left: 200px;
+	width: 100%;
+}
+.new {
+  margin-bottom: 5px;
 }
 
-input[type="text"] {
+.text-input input,textarea {
   width: 100%;
 }
 
 input[type="radio"] {
-  display: inline;
   vertical-align: middle;
   margin-right: 3px;
   cursor: pointer;
 }
 
-.radio {
-  display: inline-block;
+.radio-radio div {
+	display: inline;
+	padding-left: 0px;
 }
 
-textarea {
-  width: 100%;
-}
+@media all and (max-width: 540px) {
+	span {
+		float: none;
+	}
 
-@media all and (max-width: 550px) {
-  body {
-    padding: 10px;
-  }
+	div>div {
+		padding-left: 0px;
+	}
 
-  span {
-    display: block;
-  }
+	select {
+		width: 100%;
+	}
 
-  .inputtext {
-    position: static;
-  }
-
-  select {
-    width: 100%;
-  }
-
-  .radio {
-    display: block;
-  }
-
-  .checkbox span {
-    display: inline;
-  }
-}
+	.radio-radio div {
+		display: block;
+	}
+	
+	.checkbox-checkbox {
+		display: inline;
+	}

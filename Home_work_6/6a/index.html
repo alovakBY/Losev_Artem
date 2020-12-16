@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* div a */
+
+		.container a:not(:last-child) {
+			border-right: 3px solid red;
+			padding-right: 5px;
+		}
+
+		a {
+			color: green;
+		}
+
+		/* ul li */
+
+		.links li {
+			display: inline-block;
+		}
+
+		.links li:not(:last-child)::after {
+			content: url(img/red_line.png);
+			margin: 5px;
+		}
+
+		/* table */
+
+		.table td:not(:last-child) {
+			border-right: 3px solid red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<a href="#">первая ссылка</a>
+		<a href="#">вторая ссылка</a>
+		<a href="#">третья ссылка</a>
+		<a href="#">четвертая ссылка</a>
+		<a href="#">пятая ссылка</a>
+	</div>
+
+	<div class="links">
+		<ul>
+			<li><a href="#">первая ссылка</a></li>
+			<li><a href="#">вторая ссылка</a></li>
+			<li><a href="#">третья ссылка</a></li>
+			<li><a href="#">четвертая ссылка</a></li>
+			<li><a href="#">пятая ссылка</a></li>
+		</ul>
+	</div>
+
+	<div class="table">
+		<table>
+			<tr>
+				<td><a href="#">первая ссылка</a></td>
+				<td><a href="#">вторая ссылка</a></td>
+				<td><a href="#">третья ссылка</a></td>
+				<td><a href="#">четвертая ссылка</a></td>
+				<td><a href="#">пятая ссылка</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>

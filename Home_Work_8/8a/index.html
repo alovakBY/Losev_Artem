@@ -9,39 +9,43 @@
 </head>
 
 <body>
-	<p class="title">Для публикации вашей статьи, заполните пожалуйста следующую форму:</p>
+	<p class="title new">Для публикации вашей статьи, заполните пожалуйста следующую форму:</p>
 	<form action="#">
-		<div>
+		<div class="text new">
 			<span>Название статьи:</span>
-			<div class="inputtext"><input type="text"></div>
+			<div class="text-input"><input type="text"></div>
 		</div>
-		<div>
+		<div class="select new">
 			<span>Рубрика:</span>
-			<select name="rubric">
-				<option value="CT">компьютерная техника</option>
-				<option value="GAD">Графика и дизайн</option>
-				<option value="Pr" selected>Программирование</option>
-			</select>
+			<div class="select-rubric">
+				<select name="select-rubric">
+					<option value="CT">компьютерная техника</option>
+					<option value="GAD">Графика и дизайн</option>
+					<option value="Pr" selected>Программирование</option>
+				</select>
+			</div>
 		</div>
-		<div>
+		<div class="radio new">
 			<span>Публикация:</span>
-			<div class="radio">
-				<input type="radio" name="public" checked>на сайте
-			</div>
-			<div class="radio">
-				<input type="radio" name="public">в журнале
-			</div>
-			<div class="radio">
-				<input type="radio" name="public">на сайте и в журнале
+			<div class="radio-radio">
+				<div>
+					<input type="radio" name="public" checked>на сайте
+				</div>
+				<div>
+					<input type="radio" name="public">в журнале
+				</div>
+				<div>
+					<input type="radio" name="public">на сайте и в журнале
+				</div>
 			</div>
 		</div>
 		<div class="checkbox">
 			<span>Разрешить комментарии:</span>
-			<input type="checkbox" checked>
+			<div class="checkbox-checkbox"><input type="checkbox" checked></div>
 		</div>
-		<div>
+		<div class="area">
 			<p>Текст статьи: </p>
-			<textarea name="text"></textarea>
+			<div class="area-area"><textarea name="text"></textarea></div>
 		</div>
 		<button type="submit">Опубликовать</button>
 	</form>
