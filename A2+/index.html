@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+
+	<script>
+		"use strict"
+
+		let a = prompt("Введите строку");
+
+		function getString(a) {
+
+			/* Проверяем, первый элемент и последний строки является ли пробелом и если является то мы его удаляем */
+
+			for (let i = 0; i < a.length; i++) {
+				if (a.lastIndexOf(" ") === (a.length - 1)) {
+					a = a.slice(0, a.length - 1);
+				}
+				if (a.indexOf(" ") === 0) {
+					a = a.slice(1, a.length);
+				}
+			}
+
+			/* добавляем звездочки к строке по бокам */
+
+			a += "*";
+			a = "*" + a;
+
+			return a;
+		}
+
+		alert(getString(a));
+
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>
