@@ -17,11 +17,13 @@
 
 		let a = prompt("Введите строку");
 
+		let str = a.length;
+
 		function getString(a) {
 
 			/* Проверяем, первый элемент и последний строки является ли пробелом и если является то мы его удаляем */
 
-			for (let i = 0; i < a.length; i++) {
+			for (let i = 0; i <= str; i++) {
 				if (a.lastIndexOf(" ") === (a.length - 1)) {
 					a = a.slice(0, a.length - 1);
 				}
@@ -32,8 +34,7 @@
 
 			/* добавляем звездочки к строке по бокам */
 
-			a += "*";
-			a = "*" + a;
+			a = "*" + a + "*";
 
 			return a;
 		}
