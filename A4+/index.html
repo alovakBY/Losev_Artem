@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+
+	<script>
+
+		"use strict"
+
+		/* Переводим сразу строку в нижний регистр */
+
+		let a = prompt("Введите строку").toLowerCase();
+
+
+		let str = "";
+
+		/* Убираем все пробелы и знаки препинания в строке(мб некоторые знаки препинания забыл записать) */
+
+		a = a.replace(/[’—\s.,!?;:-]/g, "");
+
+		/* Меняем буквы "ё" на "е" и "ъ" на "ь" если они есть, чтобы игнорить разницу*/
+
+		for (let i = 0; i < a.length; i++) {
+			a = a.replace("ё", "е");
+			a = a.replace("ъ", "ь");
+		}
+
+		/* Функция getString будет вызывать сама себя пока не переберет всю строку*/
+
+		function getString(a, n) {
+
+			if (n < 0) {
+
+				/* Сравниваем старую строку с нашей новой строкой и говорим это палиндром или нет */
+
+				if (str === "") {
+					alert("Вы ввели пустую строку");
+				} else if (str === a.slice(0, a.length)) {
+					alert("Это палиндром");
+				} else {
+					alert("Это не палиндром");
+				}
+			} else {
+				str += a[n];
+				return getString(a, n - 1);
+			}
+		}
+
+		getString(a, (a.length - 1));
+
+
+	</script>
+</body>
+
+</html>
