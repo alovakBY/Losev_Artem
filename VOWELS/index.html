@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+	<script>
+
+		"use script"
+		let str = prompt("Введите строку");
+		const arr = ["а", "о", "у", "ы", "и", "э", "я", "ю", "ё", "е"];
+
+
+		function vowels(str) {
+			return str.split("").reduce((acc, el) => {
+				arr.forEach(e => {
+					if (el === e) {
+						acc++;
+					}
+				})
+				return acc
+			}, 0)
+		}
+
+		console.log(`количество гласных в строке: ${vowels(str)}`);
+
+	</script>
+</body>
+
+</html>

@@ -11,18 +11,23 @@
 
 
 
-
-
 	<script>
 		"use strict"
-		let a = prompt("Введите строку").toString();
 
-		function str(a) {
-			return a.split("").reverse().join("");
-		}
+		const arr = [5, 7,
+			[4, [2], 8, [1, 3], 2],
+			[9, []],
+			1, 8
+		];
 
+		function sum(array) {
+			return arr.flat(Infinity).reduce((acc, el) => {
+				return acc + el;
+			})
+		};
 
-		console.log(str(a));
+		console.log(sum(arr));
+
 
 	</script>
 </body>
