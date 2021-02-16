@@ -22,8 +22,8 @@
 
 		function sum(array) {
 			let sum = 0;
-			array.join(" ")
-				.split("")
+			array.join(",")
+				.split(",")
 				.forEach(el => {
 					if (!isNaN(el)) {
 						sum += +el;
