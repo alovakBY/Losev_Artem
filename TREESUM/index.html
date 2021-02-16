@@ -17,13 +17,19 @@
 		const arr = [5, 7,
 			[4, [2], 8, [1, 3], 2],
 			[9, []],
-			1, 8
+			1, 8,
 		];
 
 		function sum(array) {
-			return arr.flat(Infinity).reduce((acc, el) => {
-				return acc + el;
-			})
+			let sum = 0;
+			array.join(" ")
+				.split("")
+				.forEach(el => {
+					if (!isNaN(el)) {
+						sum += +el;
+					}
+				});
+			return sum
 		};
 
 		console.log(sum(arr));
