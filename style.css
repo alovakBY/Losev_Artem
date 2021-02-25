@@ -12,5 +12,12 @@ body {
 
 .link span {
   margin-left: 20px;
+}
+
+.pr {
   color: rgb(57, 122, 57);
+}
+
+.nepr {
+  color: rgb(175, 74, 74);
 }
