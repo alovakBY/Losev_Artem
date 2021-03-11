@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+	<script>
+
+		"use strict";
+
+		function randomDiap(n, m) {
+			return Math.floor(Math.random() * (m - n + 1)) + n;
+		}
+
+		function mood(colorsCount) {
+			var colors = ['', 'красный', 'оранжевый', 'жёлтый', 'зелёный', 'голубой', 'синий', 'фиолетовый'];
+			const nArr = [];
+			// Создаем пустой массив(nArr), в который будем пушить значения n и проверяем, если такое значние есть уже в массиве, то запускаем рекурсию пока не зарандомит значение n, которого у нас нет. Так мы избавляемся от повторения цветов.  	
+			console.log('цветов: ' + colorsCount);
+			for (var i = 1; i <= colorsCount; i++) {
+				function chek() {
+					var n = randomDiap(1, 7);
+					if (nArr.includes(n)) {
+						chek();
+					} else {
+						nArr.push(n);
+						var colorName = colors[n];
+						console.log(colorName);
+					}
+				}
+				chek();
+			}
+		}
+
+		mood(3);
+
+	</script>
+</body>
+
+</html>
