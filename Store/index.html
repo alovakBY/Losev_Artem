@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>store</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="menu">
+			<form action="#">
+				<input type="text" name="image" placeholder="URL картинки">
+				<input type="text" name="price" placeholder="Цена товара">
+				<input type="text" name="description" placeholder="Описание товара">
+				<span>Выберите тип продукта: </span>
+				<select name="id">
+					<option value="holod">Холодильники</option>
+					<option value="tv">Телевизоры</option>
+					<option value="tel">Телефоны</option>
+					<option value="stm">Стиральные машины</option>
+					<option value="microp">Микроволновые печи</option>
+				</select>
+				<div class="btn pushProduct">Отправить</div>
+			</form>
+		</div>
+		<div class="btn showProduct">Показать</div>
+		<h2>Каталог</h2>
+		<div class="sort">
+			<div class="btn sortPrice">Сортировать по цене</div>
+			<div class="type">
+				<ul>
+					<li><label><input type="checkbox" name="holod" id="" checked>Холодильники</label></li>
+					<li><label><input type="checkbox" name="tv" id="" checked>Телевизоры</label></li>
+					<li><label><input type="checkbox" name="tel" id="" checked>Телефоны</label></li>
+					<li><label><input type="checkbox" name="stm" id="" checked>Стиральные машины</label></li>
+					<li><label><input type="checkbox" name="microp" id="" checked>Микроволновые печи</label></li>
+				</ul>
+			</div>
+		</div>
+		<div class="catalog"></div>
+		<div class="basket">
+			<div class="count"></div>
+		</div>
+	</div>
+	</div>
+
+
+
+
+	<script src="main.js"></script>
+</body>
+
+</html>

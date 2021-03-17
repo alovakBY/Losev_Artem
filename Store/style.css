@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: rgb(228, 247, 255);
+}
+
+.btn {
+  margin: 5px;
+  text-align: center;
+  background-color: rgb(196, 196, 196);
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  color: rgb(216, 216, 216);
+  background-color: rgb(135, 88, 168);
+}
+
+.catalog {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 250px;
+  background-color: gray;
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  background-color: lightblue;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description {
+  height: 120px;
+  overflow-y: auto;
+}
+
+.description,
+.price {
+  margin: 5px 15px;
+  color: rgb(233, 233, 233);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sortPrice {
+  display: none;
+}
+
+.sort {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort ul {
+  display: flex;
+}
+
+.sort ul li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.type {
+  display: none;
+}
+
+.type input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.type label {
+  cursor: pointer;
+}
+
+.basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  width: 100px;
+  height: 100px;
+  background: lightblue url(img/busket.png) no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
+  transition: width 0.5s, height 0.5s, border-radius 0.5s;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.basket:hover {
+  width: 400px;
+  min-height: 200px;
+  border-radius: 5px;
+  background-image: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.basket:hover .cardBasket {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.basket:hover .count {
+  display: none;
+}
+
+.count {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 123, 123);
+  border-radius: 50%;
+  text-align: center;
+  color: rgb(87, 87, 87);
+  transition: all 0.5s;
+  padding-top: 1px;
+}
+
+.cardBasket {
+  display: none;
+  width: 90%;
+  min-height: 90%;
+  background-color: rgb(255, 142, 122);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+
+.imgBasket {
+  min-width: 30%;
+  height: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.imgBasket img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.priceBasket {
+  position: absolute;
+  background-color: white;
+  border-radius: 1px;
+  padding: 2px;
+}
+
+.descriptionBasket {
+  min-width: 60%;
+  overflow-y: scroll;
+  padding-left: 5px;
+}
+
+.deleteItemBasket {
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: yellowgreen;
+  border-radius: 50%;
+  cursor: pointer;
+}
