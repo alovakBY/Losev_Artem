@@ -1,0 +1,52 @@
+.container {
+  background-color: gainsboro;
+  margin: 0 auto;
+  padding: 10px 5px 5px;
+  max-width: 330px;
+  text-align: center;
+}
+
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 24px;
+  height: 75px;
+  background-color: rgb(230, 230, 230);
+  margin: 3px;
+  padding: 10px;
+  flex-wrap: wrap;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.button {
+  max-width: 75px;
+  height: 50px;
+  max-height: 75px;
+  flex-basis: 20%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(230, 230, 230);
+  margin: 3px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.button:active {
+  background-color: rgb(189, 188, 188);
+}
+
+.lumus {
+  background-color: rgb(255, 226, 154);
+  color: rgb(66, 66, 66);
+}
