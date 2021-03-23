@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+	<script>
+
+		function buildWrapper(str) {
+			return function (text, obj = {}) {
+				// Создаем объект, по которому будем заменять некоторые символы на мнемоники
+				const objChek = {
+					"<": "&lt;",
+					">": "&rt;",
+					"'": "&apos;",
+					'"': "'",
+					"&": "&amp;"
+				}
+				// Создаем строку, которую будем заполнять в зависимсоти от того, какие атрибуты надо записать в тег
+				let atr = ""
+				for (key in obj) {
+					atr += `${key}="${obj[key]}" `
+				}
+				// Меняем символы строки текста на мнемоники, если такие находим.
+				let newText = text.split("").map((e) => {
+					for (key in objChek) {
+						if (e === key) {
+							return objChek[key]
+						}
+					}
+					return e
+				}).join("")
+				// Меняем символы строки атрибутов на мнемоники, если такие находим.
+				let newAtr = atr.split("").map((e) => {
+					for (key in objChek) {
+						if (e === key) {
+							return objChek[key]
+						}
+					}
+					return e
+				}).join("")
+
+				// Возвращаем склееную строку
+				return strItog = `"<${str} ${newAtr}>${newText}</${str}>"`
+			}
+		}
+
+		const wrapH1 = buildWrapper("H1");
+		const wrapP = buildWrapper("P");
+		const wrapDiv = buildWrapper("DIV");
+
+		console.log(wrapH1("СТИХИ", { align: "center", title: "M&M's" }));
+		console.log(wrapP('Однажды в <студеную> "зимнюю" пору', { align: "center" }));
+		console.log(wrapDiv('Однажды в студеную зимнюю пору'));
+
+
+
+
+
+	</script>
+</body>
+
+</html>
