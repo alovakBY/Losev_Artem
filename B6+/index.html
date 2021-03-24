@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+	<script>
+
+		function formatNumber(numb, str) {
+			// Находим сколько символов будет после запятой
+			let countPostDot = str.length - str.lastIndexOf(".") - 1;
+			// число перед и после запятой 
+			let strAfterDot = (numb - Math.floor(numb))
+				.toFixed(countPostDot)
+				.split("")
+				.splice(1)
+				.join("")
+			if (strAfterDot === ".0") numb += 1
+			let strBeforeDot = Math.floor(numb)
+				.toString()
+				.split("")
+				.reverse()
+			for (let i = 3; i < Math.floor(numb).toString().length; i += 3) {
+				strBeforeDot[i] = `${strBeforeDot[i]} `
+			}
+			// Возвращаем склееное значение
+			return (strBeforeDot.reverse().join("") + strAfterDot)
+		}
+
+
+		console.log(formatNumber(123456.789, "# ### ###.##"))
+
+	</script>
+</body>
+
+</html>
