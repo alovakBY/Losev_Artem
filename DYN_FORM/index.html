@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+	<script>
+		"use strict";
+
+		const formDef1 =
+			[
+				{ label: 'Название сайта:', kind: 'longtext', name: 'sitename' },
+				{ label: 'URL сайта:', kind: 'longtext', name: 'siteurl' },
+				{ label: 'Посетителей в сутки:', kind: 'number', name: 'visitors' },
+				{ label: 'E-mail для связи:', kind: 'shorttext', name: 'email' },
+				{
+					label: 'Рубрика каталога:', kind: 'combo', name: 'division',
+					variants: [{ text: 'здоровье', value: 1 }, { text: 'домашний уют', value: 2 }, { text: 'бытовая техника', value: 3 }]
+				},
+				{
+					label: 'Размещение:', kind: 'radio', name: 'payment',
+					variants: [{ text: 'бесплатное', value: 1 }, { text: 'платное', value: 2 }, { text: 'VIP', value: 3 }]
+				},
+				{ label: 'Разрешить отзывы:', kind: 'check', name: 'votes' },
+				{ label: 'Описание сайта:', kind: 'memo', name: 'description' },
+				{ label: 'Опубликовать:', kind: 'submit' },
+			];
+
+		const formDef2 =
+			[
+				{ label: 'Фамилия:', kind: 'longtext', name: 'lastname' },
+				{ label: 'Имя:', kind: 'longtext', name: 'firstname' },
+				{ label: 'Отчество:', kind: 'longtext', name: 'secondname' },
+				{ label: 'Возраст:', kind: 'number', name: 'age' },
+				{ label: 'Зарегистрироваться', kind: 'submit' },
+			];
+
+		function form(arr) {
+			const form = document.createElement("form")
+			form.style.marginBottom = `30px`
+			form.action = "https://fe.it-academy.by/TestForm.php"
+			arr.forEach((e) => {
+				let div = document.createElement("div")
+				let label = document.createElement("label")
+				let input = document.createElement("input")
+				if (e.name !== undefined) {
+					div.textContent = e.label
+					input.name = e.name
+				} else {
+					input.value = e.label
+				}
+				if (e.variants !== undefined) {
+					if (e.kind === "combo") {
+						const select = document.createElement("select")
+						select.name = e.name
+						e.variants.forEach((el, i) => {
+							let option = document.createElement("option")
+							option.value = i + 1
+							option.textContent = el.text
+							select.appendChild(option)
+						})
+						div.appendChild(select)
+						form.appendChild(div)
+					}
+					if (e.kind === "radio") {
+						e.variants.forEach((el, i) => {
+							let input = document.createElement("input")
+							input.type = e.kind
+							input.value = i + 1
+							input.name = e.name
+							div.appendChild(input)
+							div.innerHTML += el.text
+						})
+						form.appendChild(div)
+					}
+				} else {
+					if (e.kind === "check") {
+						input.type = "checkbox"
+						input.checked = true
+					} else {
+						input.type = e.kind
+					}
+					label.appendChild(input)
+					div.appendChild(label)
+					form.appendChild(div)
+				}
+			})
+			document.body.appendChild(form)
+		}
+
+
+		form(formDef1)
+		form(formDef2)
+
+	</script>
+</body>
+
+</html>
