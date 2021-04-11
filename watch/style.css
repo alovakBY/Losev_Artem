@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.watch {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: rgb(151, 182, 211);
+}
