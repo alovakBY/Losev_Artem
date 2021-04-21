@@ -14,19 +14,18 @@ const operator = ["+","-","*","/"];
 screen.textContent = "0";
 
 // Клик по "%"
-proportion.addEventListener("click", (e) => {
+proportion.addEventListener("click", () => {
 	if (screen.textContent[screen.textContent.length-1] === " " || screen.textContent[screen.textContent.length-1] === ".") return
-	screen.textContent += ` ${e.target.textContent}`
 	const arrayNum = screen.textContent
 	.split(" ")
 	.map((el) => {
 		if (isNaN(parseFloat(el))) return el 
 		return parseFloat(el)
 	})
-	if (arrayNum.length === 2) {
-		arrayNum.splice(0,2, arrayNum[0]/100)
+	if (arrayNum.length === 1) {
+		arrayNum.splice(0 , 1, arrayNum[0]/100)
 	} else {
-		arrayNum.splice(arrayNum.length - 2, 2, Math.abs(arrayNum[arrayNum.length-4]) / 100 * arrayNum[arrayNum.length-2])
+		arrayNum.splice(arrayNum.length - 1, 1, Math.abs(arrayNum[arrayNum.length-3]) / 100 * arrayNum[arrayNum.length-1])
 	}
 	screen.textContent = arrayNum.join(" ")
 }) 
@@ -84,7 +83,7 @@ btns.addEventListener("click", e => {
 		if (screen.textContent[screen.textContent.length-2] === ")") {
 			return
 		}
-		if (screen.textContent[screen.textContent.length-1] !== " " && screen.textContent[screen.textContent.length-1] !== "0") {
+		if (screen.textContent[screen.textContent.length-1] !== " " && screen.textContent !== "0") {
 			return
 		}
 		if (screen.textContent === "0" || screen.textContent.length === 0) {
@@ -96,11 +95,9 @@ btns.addEventListener("click", e => {
 	// Клик по скобке ")"
 	if (e.target.closest("div").classList.contains("closeHook")) {
 		if (screen.textContent === "0" || screen.textContent.length === 0) return 
-		if (screen.textContent[screen.textContent.length-2] === "(" || screen.textContent[screen.textContent.length-1] === " ") {
-			return
-		} else {
-			screen.textContent += ` ${e.target.textContent} `;
-		}
+		if (screen.textContent[screen.textContent.length-2] === "(") return
+		if (screen.textContent[screen.textContent.length-1] === " " && screen.textContent[screen.textContent.length-2] !== ")") return
+			screen.textContent += ` ${e.target.textContent} `
 	} 
 })
 
