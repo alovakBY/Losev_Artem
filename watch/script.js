@@ -96,13 +96,18 @@ setArrowsStyles(arrowHour,10,140,"rgb(158, 223, 203)")
 setArrowsStyles(arrowMinute,5,190,"rgb(255, 243, 139)")
 setArrowsStyles(arrowSecond,3,240,"rgb(166, 88, 255)")
 
-let interval = setInterval(() => {
+
+function getWatch() {
 	const time = new Date()
 	electroWatch.textContent = getTime()
 	arrowSecond.style.transform = `rotate(${time.getSeconds()*6}deg)`
 	arrowMinute.style.transform = `rotate(${time.getMinutes()*6}deg)`
 	arrowHour.style.transform = `rotate(${time.getHours()*30 + 30*time.getMinutes()/60}deg)`
-},1000)
+}
+
+let interval = setInterval(getWatch,1000)
+
+getWatch()
 
 
 

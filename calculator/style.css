@@ -20,6 +20,21 @@
   transition: background-color 0.3s;
 }
 
+.screenError {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 16px;
+  height: 40px;
+  color: indianred;
+  background-color: rgb(230, 230, 230);
+  margin: 3px;
+  padding: 10px;
+  flex-wrap: wrap;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
 .btns {
   display: flex;
   flex-wrap: wrap;

@@ -1,5 +1,6 @@
 "use strict"
 const screen = document.querySelector(".screen");
+const screenError = document.querySelector(".screenError");
 const btns = document.querySelector(".btns");
 const btnNumber = document.querySelectorAll(".n");
 const equally = document.querySelector(".equally");
@@ -9,24 +10,41 @@ const lumus = document.querySelector(".sun");
 const proportion = document.querySelector(".proportion");
 const operator = ["+","-","*","/"];
 
-console.log(proportion)
 
 screen.textContent = "0";
 
-/* // Клик по "%"
+// Клик по "%"
 proportion.addEventListener("click", (e) => {
-	"%": function (arr, i) { return arr.splice(i-1, 3, Math.abs(arr[i-3]) / 100 * arr[i-1])},
-}) */
+	if (screen.textContent[screen.textContent.length-1] === " " || screen.textContent[screen.textContent.length-1] === ".") return
+	screen.textContent += ` ${e.target.textContent}`
+	const arrayNum = screen.textContent
+	.split(" ")
+	.map((el) => {
+		if (isNaN(parseFloat(el))) return el 
+		return parseFloat(el)
+	})
+	if (arrayNum.length === 2) {
+		arrayNum.splice(0,2, arrayNum[0]/100)
+	} else {
+		arrayNum.splice(arrayNum.length - 2, 2, Math.abs(arrayNum[arrayNum.length-4]) / 100 * arrayNum[arrayNum.length-2])
+	}
+	screen.textContent = arrayNum.join(" ")
+}) 
 
 // клик на подсветку =) 
 lumus.addEventListener("click", ()=> {
 	screen.classList.toggle("lumus")
+	screenError.classList.toggle("lumus")
 })
 
 
 // клики на ввод данных 
 btns.addEventListener("click", e => {
+	if(!e.target.closest("div").classList.contains("equally")) {
+		screenError.textContent = ""
+	}
 	if(e.target.closest("div").classList.contains("n")) {
+		if (screen.textContent[screen.textContent.length-2] === ")") return
 		if(e.target.closest("div").classList.contains("dot")) {
 			if(screen.textContent[screen.textContent.length-1] === " ") {
 				screen.textContent += "0";
@@ -38,7 +56,7 @@ btns.addEventListener("click", e => {
 			}
 		}
 		// условие на ввод числа или точки в строке, у которой последнее значение === 0. Если вводится точка, то запишется "0.", иначе "0" удаляется и вводится число
-		if (screen.textContent[screen.textContent.length-1] === "0") {
+		if (screen.textContent === "0") {
 			if(e.target.closest("div").classList.contains("dot")) {
 				screen.textContent += e.target.textContent;
 			} else {
@@ -50,6 +68,7 @@ btns.addEventListener("click", e => {
 	} 
 	// Клик по + - * / .
 	if (e.target.closest("div").classList.contains("operator")) {
+		if (screen.textContent[screen.textContent.length-2] === "(") return
 		if(screen.textContent[screen.textContent.length-1] === ".") screen.textContent += `0 ${e.target.textContent} `
 			screen.textContent += ` ${e.target.textContent} `;
 		// условие на смену оператора вычислений если ввели не тот либо если ввели два оператора подряд, то принимается последний
@@ -58,9 +77,16 @@ btns.addEventListener("click", e => {
 		}
 	} if (e.target.closest("div").classList.contains("delAll")) {
 		screen.textContent = "0";
+		screenError.textContent = ""
 	} 
 	// Клик по скобке "("
 	if (e.target.closest("div").classList.contains("openHook")) {
+		if (screen.textContent[screen.textContent.length-2] === ")") {
+			return
+		}
+		if (screen.textContent[screen.textContent.length-1] !== " " && screen.textContent[screen.textContent.length-1] !== "0") {
+			return
+		}
 		if (screen.textContent === "0" || screen.textContent.length === 0) {
 			screen.textContent = ` ${e.target.textContent} `;
 		} else {
@@ -69,8 +95,9 @@ btns.addEventListener("click", e => {
 	} 
 	// Клик по скобке ")"
 	if (e.target.closest("div").classList.contains("closeHook")) {
-		if (screen.textContent === "0" || screen.textContent.length === 0) {
-			screen.textContent = ` ${e.target.textContent} `;
+		if (screen.textContent === "0" || screen.textContent.length === 0) return 
+		if (screen.textContent[screen.textContent.length-2] === "(" || screen.textContent[screen.textContent.length-1] === " ") {
+			return
 		} else {
 			screen.textContent += ` ${e.target.textContent} `;
 		}
@@ -80,7 +107,10 @@ btns.addEventListener("click", e => {
 // клик по "=".
 equally.addEventListener("click", () => {
 	if (screen.textContent.length === 0) return
-	if (screen.textContent[screen.textContent.length-1] === " " && screen.textContent[screen.textContent.length-2] !== ")") return
+	if (screen.textContent[screen.textContent.length-1] === " " && screen.textContent[screen.textContent.length-2] !== ")") {
+		screenError.textContent = "Введено некорректное значение!" 
+		return
+	}
 	// возвращаем такой же массив только числа уже c числовым типом данных. Массив разбивается по пробелам (" ").
 	const arrayNumTest = screen.textContent.split(" ").map((el) => {
 		if (isNaN(parseFloat(el))) return el 
@@ -97,14 +127,13 @@ equally.addEventListener("click", () => {
 		}
 	})
 	if (a !== 0) {
-		console.log("Закройте все скобки")
+		screenError.textContent = "Введено некорректное значение!"
 		return
 	}
 	const arrayNum = []
 	arrayNumTest.forEach(e => {
 		if (e !== "") arrayNum.push(e)
 	})
-	console.log(arrayNum)
 	calculation(arrayNum)
 })
 
@@ -120,12 +149,13 @@ plusMinus.addEventListener("click", () => {
 
 // клик на удаление последнего значения. Здесь мы спрашиваем, если последний символ === " ", то удаляем за один клик по кнопке 3 последних символа(потому что, когда мы вводим символы операторов, то у нас прилетает строка === например " + "). Если же последний символ !== " ", значит последний символ - это число и нам нужно удалить за один клик 1 последний символ. Если в троке один символ - меняем его на ноль.
 delNumb.addEventListener("click", () => {
+	screenError.textContent = ""
 	if (screen.textContent.length === 1 && screen.textContent[0] === "0") {
 		return
 	} else if (screen.textContent[screen.textContent.length - 1] === " ") {
 		return screen.textContent = screen.textContent.slice(0, -3)
 	} else {
-		if(screen.textContent.length === 1) {
+		if(screen.textContent.length === 1 || screen.textContent.length === 0) {
 			return screen.textContent = "0"
 		} else {
 			return screen.textContent = screen.textContent.slice(0, -1)
@@ -135,6 +165,7 @@ delNumb.addEventListener("click", () => {
 
 const obj = {
 	"(": function (arr, i) {
+		// Здесь мы ищем какие скобки каким соответствуют, вырезаем их, а выражение, которое было внутри считаем нашей функцией calculation(arr)
 		let count = 0
 		let close = 0
 		for (let j = 0; j < arr.length; j++) {
@@ -150,9 +181,7 @@ const obj = {
 				}
 			}
 		}
-		console.log(close)
 		const nArr = arr.slice(i+1,close)
-		console.log(nArr)
 		return arr.splice(i, close + 1 - i, calculation(nArr))
 	}, 
 	"-": function (arr, i) { return arr.splice(i, 2, "+", (-arr[i+1])) },
@@ -163,7 +192,6 @@ const obj = {
 
 // функция, которая считает выражение рекурсией до тех пор, пока в массиве не останется одно значение.
 		function calculation(arr) {
-			console.log(arr)
 			Object.keys(obj).forEach((el)=>{
 				let i = arr.indexOf(el);
 				if(i !== -1) {
@@ -171,7 +199,7 @@ const obj = {
 					return calculation(arr);
 				}
 			})
-			return screen.textContent = +parseFloat((arr.join(""))).toFixed(8)
+			return screen.textContent = +parseFloat((arr.join(""))).toFixed(12)
 		}
 
 
