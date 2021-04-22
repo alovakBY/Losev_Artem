@@ -15,5 +15,5 @@
   background-color: brown;
   border: 2px solid black;
   cursor: pointer;
-  position: absolute;
+  display: inline-block;
 }

@@ -6,23 +6,24 @@ const container = document.querySelector(".container")
 let shiftX = 0
 let shiftY = 0
 
-// Создаем 10 мячей, которые рандомно появятся в пределах контейнера 
+// Создаем 10 мячей
 for (let i = 0; i < 10; i++) {
 	const div = document.createElement("div");
 	div.className = "ball"
-	div.style.left = `${Math.floor(Math.random() * (container.offsetWidth - 50))}px`
-	div.style.top =`${Math.floor(Math.random() * (container.offsetHeight - 50))}px`
 	container.appendChild(div)
 }
 
 const balls = document.querySelectorAll(".ball")
 
 function start(e) {
+	e.target.style.position = "absolute"
 	e.target.style.zIndex = 10
 	// Запоминаем разницу расстояний между курсором и началом мяча
 	shiftX = e.pageX - e.target.getBoundingClientRect().x
 	shiftY = e.pageY - e.target.getBoundingClientRect().y	
-	container.addEventListener("mousemove", move)
+	e.target.style.left = `${e.pageX - container.getBoundingClientRect().x - shiftX}px`;
+	e.target.style.top = `${e.pageY - container.getBoundingClientRect().y - shiftY}px`;
+	document.addEventListener("mousemove", move)
 }
 
 function move(e) {
@@ -35,7 +36,7 @@ function move(e) {
 function end(e) {
 	e.target.style.zIndex = ""
 	e.target.removeEventListener("mousedown", start)
-	container.removeEventListener("mousemove", move)
+	document.removeEventListener("mousemove", move)
 	e.target.addEventListener("mousedown", start)
 }
 
