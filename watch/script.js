@@ -103,6 +103,7 @@ function getWatch() {
 	arrowSecond.style.transform = `rotate(${time.getSeconds()*6}deg)`
 	arrowMinute.style.transform = `rotate(${time.getMinutes()*6}deg)`
 	arrowHour.style.transform = `rotate(${time.getHours()*30 + 30*time.getMinutes()/60}deg)`
+	console.log(time.getHours())
 }
 
 let interval = setInterval(getWatch,1000)

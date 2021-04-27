@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body style="margin: 0">
+
+	<canvas class="canvas">
+
+	</canvas>
+
+
+
+	<script type="text/javascript" charset="utf-8">
+		"use strict";
+
+		const canv = document.querySelector(".canvas")
+		const ctx = canv.getContext("2d")
+		canv.width = window.innerWidth
+		canv.height = window.innerHeight
+		// Центр часов
+		const centerX = canv.width / 2
+		const centerY = canv.height / 2
+
+
+		setInterval(() => {
+
+			// Получаем дату
+			const time = new Date()
+
+			// Рисуем часы
+			ctx.clearRect(0, 0, canv.width, canv.height)
+			ctx.beginPath()
+			ctx.arc(centerX, centerY, 200, 0, 2 * Math.PI)
+			ctx.closePath()
+			ctx.fillStyle = "rgb(151, 182, 211)"
+			ctx.fill()
+
+			// Рисуем циферблат
+			for (let i = 0; i < 12; i++) {
+				let x = centerX + (200 - 35) * Math.sin((i + 1) * 30 * Math.PI / 180)
+				let y = centerY - (200 - 35) * Math.cos((i + 1) * 30 * Math.PI / 180)
+				ctx.fillStyle = "rgb(201, 176, 230)"
+				ctx.beginPath()
+				ctx.arc(x, y, 25, 0, 2 * Math.PI)
+				ctx.closePath()
+				ctx.fill()
+				ctx.fillStyle = "black"
+				ctx.font = "32px Arial"
+				ctx.textAlign = "center"
+				ctx.textBaseline = "middle"
+				ctx.fillText(i + 1, x, y)
+			}
+
+			// Функция, которая рисует стрелки
+			function positionArrow(angle, width, height, color) {
+				ctx.save()
+				ctx.transform(1, 0, 0, 1, centerX, centerY)
+				ctx.rotate(angle * Math.PI / 180)
+				ctx.fillStyle = color
+				ctx.fillRect(-width / 2, -height + 10, width, height)
+				ctx.restore()
+			}
+			// Углы поворота стрелок в градусах
+			let angleHourArrow = (time.getHours() - 12) * 30 + 30 * time.getMinutes() / 60
+			let angleMinuteArrow = time.getMinutes() * 6
+			let angleSecondsArrow = time.getSeconds() * 6
+
+			positionArrow(angleHourArrow, 9, 110, "rgb(158, 223, 203)")
+			positionArrow(angleMinuteArrow, 6, 160, "rgb(255, 243, 139)")
+			positionArrow(angleSecondsArrow, 4, 190, "rgb(166, 88, 255)")
+
+		}, 1000)
+
+	</script>
+</body>
+
+</html>
