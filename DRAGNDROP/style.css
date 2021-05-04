@@ -6,7 +6,7 @@
 .container {
   margin: 0 auto;
   width: 100%;
-  height: 400px;
+  height: 600px;
   border: 1px solid black;
   background-color: rgb(161, 161, 161);
   position: relative;
@@ -14,8 +14,8 @@
 }
 
 .ball {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background-color: brown;
   border: 2px solid black;

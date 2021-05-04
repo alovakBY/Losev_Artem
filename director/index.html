@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>director</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="director">
+			DIRECTOR
+		</div>
+		<div class="director-menu">
+			<div class="director-hr">HR</div>
+			<div class="director-content">CONTENT</div>
+			<div class="director-logistic">LOGISTIC</div>
+		</div>
+		<div class="director-info">
+		</div>
+		<div class="menu">
+			<div class="menu-hr">
+				<div class="menu-hr-title">HR</div>
+				<div class="menu-hr-form">
+					<form action="#" name="hr">
+						<p>Имя: <input type="text" name="firstname" placeholder="Имя"></p>
+						<p>Фамилию: <input type="text" name="secondname" placeholder="Фамилия"></p>
+						<p>Должность: <input type="text" name="position" placeholder="Должность"></p>
+						<p>Оклад: <input type="number" name="salary" placeholder="Оклад"></p>
+						<p>Гражданство: <input type="text" name="nationality" placeholder="Гражданство"></p>
+						<p>Место жительства:<input type="text" name="residence" placeholder="Место жительства"></p>
+						<p>Образование:<input type="text" name="education" placeholder="Образование"></p>
+						<p>Пол: </p>
+						<p>мужской<input type="radio" name="gender" value="мужской"></p>
+						<p>женский<input type="radio" name="gender" value="женский"></p>
+						<p> Семейное положение:
+							<select name="family">
+								<option value="замужем">замужем</option>
+								<option value="не замужем">не замужем</option>
+								<option value="женат">женат</option>
+								<option value="не женат">не женат</option>
+							</select>
+						</p>
+						<p>Дата рождения:<input type="date" name="birthday"></p>
+					</form>
+					<button type="button" class="buttonHR btn">Отправить</button>
+				</div>
+			</div>
+			<div class="menu-content">
+				<div class="menu-content-title">CONTENT</div>
+				<div class="menu-content-form">
+					<form action="#" name="content">
+						<p>Тип товара: <input type="text" name="product" placeholder="Тип товара"></p>
+						<p>Производитель: <input type="text" name="manufacturer" placeholder="Производитель"></p>
+						<p>Магазины: <button class="shops" type="button">добавить</button></p>
+						<p>Дата выхода:<input type="date" name="release"></p>
+						<p>Гарантия: <input type="text" name="guarantee" placeholder="Гарантия"></p>
+						<p>Акция:</p>
+						<p>да<input type="radio" name="sale" value="Да"></p>
+						<p>нет<input type="radio" name="sale" value="Нет"></p>
+						<p>Характеристики: <button class="characteristics" type="button">добавить</button><br></p>
+						<p>Дата добавления:<input type="date" name="added"></p>
+					</form>
+					<button type="button" class="buttonContent btn">Отправить</button>
+				</div>
+			</div>
+			<div class="menu-logistic">
+				<div class="menu-logistic-title">LOGISTIC</div>
+				<div class="menu-logistic-form">
+					<form action="#" name="logistic">
+						<p>Навание груза: <input type="text" name="name" placeholder="Название груза"></p>
+						<p>Ширина, мм: <input type="number" name="width" placeholder="Ширина"></p>
+						<p>Длина, мм: <input type="number" name="length" placeholder="Длина"></p>
+						<p>Высота, мм: <input type="number" name="height" placeholder="Высота"></p>
+						<p>Количество, шт: <input type="number" name="amount" placeholder="Количество"></p>
+						<p> Тип перевозки:
+							<select name="transportation">
+								<option value="авиа">авиа</option>
+								<option value="наземный">наземный</option>
+								<option value="водный">водный</option>
+							</select>
+						</p>
+						<p>Растаможка: <input type="number" name="custom" placeholder="растаможка(сумма)"></p>
+						<p>Дата перевозки:<input type="date" name="dateOfTranspo></p>
+						<p>Сумма груза: <input type=" number" name="amountOfCargo" placeholder="сумма груза"></p>
+						<p>Страховка:</p>
+						<p>да<input type="radio" name="insurance" value="Да"></p>
+						<p>нет<input type="radio" name="insurance" value="Нет"></p>
+						<p> Статус:
+							<select name="status">
+								<option value="В пути">В пути</option>
+								<option value="Приехал">Приехал</option>
+								<option value="Грузится">Грузится</option>
+							</select>
+						</p>
+					</form>
+					<button type="button" class="buttonLogistic btn">Отправить</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+
+
+
+
+	<script src="script.js"></script>
+</body>
+
+</html>

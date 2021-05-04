@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightslategray;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.container {
+  margin: 50px auto;
+  max-width: 1440px;
+  text-align: center;
+}
+
+.director {
+  width: 100%;
+  height: 60px;
+  background-color: lightsalmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.director:hover {
+  background-color: rgb(231, 124, 81);
+}
+
+.director-menu {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.director-menu > div {
+  flex-basis: 33.33%;
+  height: 50px;
+  border: 1px solid black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(89, 189, 255);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.director-menu > div:hover {
+  background-color: rgb(34, 166, 255);
+}
+
+.director-info {
+  background-color: rgb(139, 195, 233);
+  text-align: left;
+  font-weight: 400;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.director-info > div {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid mediumvioletred;
+  background-color: rgb(108, 156, 204);
+}
+
+.menu {
+  display: flex;
+}
+
+.menu > div {
+  flex-basis: 33.33%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu > div > div:first-child {
+  cursor: pointer;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(95, 255, 143);
+  transition: background-color 0.3s;
+}
+
+.menu > div > div:first-child:hover {
+  background-color: rgb(82, 201, 118);
+}
+
+.menu > div > div:last-child {
+  background-color: rgb(183, 212, 77);
+  transition: background-color 0.3s;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid black;
+  overflow-y: auto;
+}
+
+form > p {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+form > p > input[type="radio"] {
+  align-self: center;
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 5px;
+}

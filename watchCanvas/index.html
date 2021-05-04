@@ -26,9 +26,7 @@
 		const centerX = canv.width / 2
 		const centerY = canv.height / 2
 
-
-		setInterval(() => {
-
+		function getTimeCanvas() {
 			// Получаем дату
 			const time = new Date()
 
@@ -74,8 +72,10 @@
 			positionArrow(angleMinuteArrow, 6, 160, "rgb(255, 243, 139)")
 			positionArrow(angleSecondsArrow, 4, 190, "rgb(166, 88, 255)")
 
-		}, 1000)
+		}
 
+		setInterval(getTimeCanvas, 1000)
+		getTimeCanvas()
 	</script>
 </body>
 
