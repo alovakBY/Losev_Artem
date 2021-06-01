@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+	<script>
+		"use strict"
+
+		const man = {
+			name: "Константин",
+			age: 28,
+			job: "Программист",
+			skills: {
+				html: "yes",
+				css: "yes",
+				js: {
+					react: "yes",
+					angular: "no"
+				},
+			},
+			language: ["en", "ru"]
+		}
+
+		const newMan = man;
+
+
+		function global(obj) {
+			return Object.keys(obj).reduce((acc, el) => {
+				if (typeof obj[el] === "object") {
+					if (Array.isArray(obj[el])) {
+						acc[el] = Object.values(global(obj[el]))
+					} else {
+						acc[el] = global(obj[el])
+					}
+				} else {
+					acc[el] = obj[el]
+				}
+				return acc
+			}, {})
+		}
+
+		const newMan2 = global(man)
+		newMan.name = "Никита"
+		newMan2.name = "Алексей"
+		newMan2.age = 25
+		newMan2.skills.js.react = "no"
+
+		console.log(man);
+		console.log(newMan2);
+		console.log(newMan);
+
+
+	</script>
+</body>
+
+</html>
